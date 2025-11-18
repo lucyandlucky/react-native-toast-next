@@ -6,7 +6,7 @@ import { useToast } from './hook';
 
 const ToastRoot = React.forwardRef<ToastRef, ToastProps>((props, ref) => {
   const { config, ...defaultOptions } = props;
-  const { isVisible, show, hide } = useToast({ defaultOptions });
+  const { isVisible, options, data, show, hide } = useToast({ defaultOptions });
 
   React.useImperativeHandle(ref, () => ({
     show,
@@ -16,9 +16,11 @@ const ToastRoot = React.forwardRef<ToastRef, ToastProps>((props, ref) => {
   return (
     <ToastComponent
       isVisible={isVisible}
+      config={config}
+      options={options}
+      data={data}
       show={show}
       hide={hide}
-      options={{}}
     />
   );
 });

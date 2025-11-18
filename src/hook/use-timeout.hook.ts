@@ -8,7 +8,7 @@ export function useTimeout<CbParams>(cb: (p?: CbParams) => void, delayMs = 0) {
 
   const clearTimer = React.useCallback(() => {
     if (timerRef.current) {
-      log('Clearing timer', timerRef);
+      log('Clearing timer', timerRef.current);
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
@@ -19,7 +19,7 @@ export function useTimeout<CbParams>(cb: (p?: CbParams) => void, delayMs = 0) {
     timerRef.current = setTimeout(() => {
       cb();
       log('Running timer', timerRef.current);
-      timerRef.current = null;
+      clearTimer();
     }, delayMs);
     log('Starting timer', timerRef.current);
   }, [delayMs, clearTimer, cb, log]);

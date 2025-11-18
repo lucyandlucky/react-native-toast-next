@@ -37,11 +37,18 @@ export function useToast(o: UseToastParams) {
   const [data, setData] = React.useState(DEFAULT_DATA);
 
   const onAutoHide = React.useCallback(() => {
+    const { autoHide } = initialOption;
+    if (!autoHide) {
+      return;
+    }
     setIsVisible(false);
     log('Auto hiding');
-  }, [log]);
+  }, [log, initialOption]);
 
-  const { startTimer, clearTimer } = useTimeout(onAutoHide, 4000);
+  const { startTimer, clearTimer } = useTimeout(
+    onAutoHide,
+    options.visibilityTime
+  );
 
   const show = React.useCallback(
     (params: ToastShowParams) => {
