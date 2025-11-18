@@ -1,14 +1,16 @@
 import React from 'react';
-import { Animated, Text } from 'react-native';
-import type { ReactChildren } from '../types';
+import { Animated } from 'react-native';
+import type { ReactChildren, ToastPosition } from '../../types';
+import { styles } from './styles';
 
 type Props = {
   isVisible: boolean;
+  position: ToastPosition;
   children: ReactChildren;
 };
 
 export default function AnimatedContainer(props: Props) {
-  const { isVisible } = props;
+  const { isVisible, children } = props;
 
   const animatedValue = React.useRef(new Animated.Value(0)).current;
   const opacity = animatedValue.interpolate({
@@ -29,8 +31,11 @@ export default function AnimatedContainer(props: Props) {
   }, [animate, isVisible]);
 
   return (
-    <Animated.View style={[{ opacity }]}>
-      <Text>demo</Text>
+    <Animated.View
+      style={[styles.container, { opacity }]}
+      pointerEvents={'none'}
+    >
+      {children}
     </Animated.View>
   );
 }

@@ -1,4 +1,3 @@
-import { Text } from 'react-native';
 import type {
   ToastConfig,
   ToastData,
@@ -7,6 +6,7 @@ import type {
   ToastShowParams,
 } from './types';
 import AnimatedContainer from './components/animated-container';
+import BaseToast from './components/base-toast';
 
 export type ToastComponentProps = {
   isVisible: boolean;
@@ -18,11 +18,12 @@ export type ToastComponentProps = {
 };
 
 export default function ToastComponent(props: ToastComponentProps) {
-  const { isVisible } = props;
+  const { isVisible, options } = props;
+  const { position } = options;
 
   return (
-    <AnimatedContainer isVisible={isVisible}>
-      <Text>demo</Text>
+    <AnimatedContainer isVisible={isVisible} position={position}>
+      <BaseToast />
     </AnimatedContainer>
   );
 }
