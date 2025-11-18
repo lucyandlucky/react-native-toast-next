@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { LoggerProvider } from './context/logger-context';
 import type { ToastRef, ToastProps } from './types';
 import ToastComponent from './ToastComponent';
 
 const ToastRoot = React.forwardRef<ToastRef, ToastProps>((_props, ref) => {
-  const timer = useRef<NodeJS.Timeout>(null);
+  const timer = React.useRef<NodeJS.Timeout>(null);
   const [isVisible, setIsVisible] = React.useState(false);
 
   const show = () => {
