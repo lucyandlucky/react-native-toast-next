@@ -1,33 +1,26 @@
 import React from 'react';
 import { LoggerProvider } from './context/logger-context';
-import type { ToastRef, ToastProps } from './types';
+import type { ToastRef, ToastProps, ToastShowParams } from './types';
 import ToastComponent from './ToastComponent';
+import { useToast } from './hook';
 
-const ToastRoot = React.forwardRef<ToastRef, ToastProps>((_props, ref) => {
-  const timer = React.useRef<NodeJS.Timeout>(null);
-  const [isVisible, setIsVisible] = React.useState(false);
-
-  const show = () => {
-    setIsVisible(true);
-    timer.current = setTimeout(() => {
-      hide();
-    }, 3000);
-  };
-
-  const hide = () => {
-    setIsVisible(false);
-    if (timer.current) {
-      clearTimeout(timer.current);
-      timer.current = null;
-    }
-  };
+const ToastRoot = React.forwardRef<ToastRef, ToastProps>((props, ref) => {
+  const { config, ...defaultOptions } = props;
+  const { isVisible, show, hide } = useToast({ defaultOptions });
 
   React.useImperativeHandle(ref, () => ({
     show,
     hide,
   }));
 
-  return <ToastComponent isVisible={isVisible} show={show} hide={hide} />;
+  return (
+    <ToastComponent
+      isVisible={isVisible}
+      show={show}
+      hide={hide}
+      options={{}}
+    />
+  );
 });
 
 type ToastRefObj = {
@@ -77,14 +70,14 @@ export function Toast(props: ToastProps): React.ReactElement {
   }, []);
 
   return (
-    <LoggerProvider enableLogs={false}>
+    <LoggerProvider enableLogs={true}>
       <ToastRoot ref={setRef} {...props} />
     </LoggerProvider>
   );
 }
 
-Toast.show = () => {
-  getRef()?.show();
+Toast.show = (p: ToastShowParams) => {
+  getRef()?.show(p);
 };
 
 Toast.hide = () => {

@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { Text, Animated } from 'react-native';
+import type { ToastHideParams, ToastShowParams } from './types';
 
 export type ToastComponentProps = {
   isVisible: boolean;
-  show: () => void;
-  hide: () => void;
+  options: any;
+  show: (p: ToastShowParams) => void;
+  hide: (p: ToastHideParams) => void;
 };
 
 export default function ToastComponent(props: ToastComponentProps) {
