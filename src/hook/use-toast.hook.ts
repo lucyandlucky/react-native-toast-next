@@ -19,8 +19,8 @@ const DEFAULT_OPTION: Required<ToastOptions> = {
   position: 'center',
   visibilityTime: 4000,
   autoHide: true,
-  textStyle: {},
-  props: {},
+  textStyle: null,
+  props: null,
   onPress: noop,
 };
 

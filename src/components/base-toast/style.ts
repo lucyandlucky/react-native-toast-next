@@ -8,13 +8,14 @@ export const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 10,
     backgroundColor: 'rgba(0,0,0,0.7)',
-    borderRadius: 6,
+    borderRadius: 8,
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.7)',
+    borderColor: 'transparent',
   },
   text: {
     color: '#FFFFFF',
     fontSize: 14,
+    fontWeight: 'bold',
     lineHeight: 20,
   },
   leadingIcon: {

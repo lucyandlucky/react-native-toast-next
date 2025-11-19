@@ -7,8 +7,12 @@ import type {
 } from './types';
 import AnimatedContainer from './components/animated-container';
 import { BaseToast } from './components/base-toast';
+import { SuccessToast } from './components/success-toast';
+import { ErrorToast } from './components/error-toast';
 
 const defaultToastConfig: ToastConfig = {
+  success: (props) => <SuccessToast {...props} />,
+  error: (props) => <ErrorToast {...props} />,
   info: (props) => <BaseToast {...props} />,
 };
 
