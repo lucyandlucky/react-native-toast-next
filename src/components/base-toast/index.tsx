@@ -15,13 +15,13 @@ function renderIcon(o: {
   iconStyle?: StyleProp<ImageStyle>;
   renderFn?: () => ReactChildren;
 }) {
-  const { icon, renderFn } = o;
+  const { icon, iconStyle, renderFn } = o;
 
   if (renderFn && typeof renderFn === 'function') {
     return renderFn();
   }
   if (icon) {
-    return <Image source={icon} />;
+    return <Image source={icon} style={iconStyle} />;
   }
   return null;
 }
@@ -43,7 +43,6 @@ export function BaseToast(props: BaseToastProps) {
     renderTrailingIcon,
   } = props;
 
-  console.log('leadingIcon --.', leadingIcon);
   return (
     <TouchableOpacity
       style={[styles.base, style]}

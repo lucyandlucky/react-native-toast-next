@@ -8,6 +8,7 @@ import type {
   ToastShowParams,
 } from '../types';
 import { mergeIfDefined } from '../utils/obj';
+import { noop } from '../utils/func';
 
 export const DEFAULT_DATA: ToastData = {
   text: undefined,
@@ -18,7 +19,9 @@ const DEFAULT_OPTION: Required<ToastOptions> = {
   position: 'center',
   visibilityTime: 4000,
   autoHide: true,
+  textStyle: {},
   props: {},
+  onPress: noop,
 };
 
 export type UseToastParams = {

@@ -82,11 +82,19 @@ export type ToastOptions = {
    */
   autoHide?: boolean;
   /**
+   * Style for Toast text
+   */
+  textStyle?: StyleProp<TextStyle>;
+  /**
    * Any custom props passed to specified Toast Type.
    * Has effect only when there is a custom Toast Type (configured via `config` prop on the Toast instance)
    * that uses `props` parameter
    */
   props?: any;
+  /**
+   * Called on Toast press
+   */
+  onPress?: () => void;
 };
 
 export type ToastProps = {

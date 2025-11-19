@@ -21,18 +21,23 @@ export type ToastComponentProps = {
   hide: (p: ToastHideParams) => void;
 };
 
-function renderComponent({
+function RenderComponent({
   config,
+  isVisible,
   data,
   options,
   show,
   hide,
 }: ToastComponentProps) {
   const { text } = data;
-  const { type } = options;
-  const Component = defaultToastConfig[type];
+  const { type, props, position, textStyle, onPress } = options;
 
-  console.log('config', config);
+  const toastConfig = {
+    ...defaultToastConfig,
+    ...config,
+  };
+
+  const Component = toastConfig[type];
 
   if (!Component) {
     // TODO: throw err
@@ -41,14 +46,12 @@ function renderComponent({
 
   return Component({
     text,
-    textStyle: {},
-    position: 'bottom',
+    textStyle,
+    position,
     type,
-    props: {
-      demo: 'demo',
-    },
-    isVisible: true,
-    onPress() {},
+    props,
+    isVisible,
+    onPress,
     show,
     hide,
   });
@@ -60,7 +63,7 @@ export default function ToastComponent(props: ToastComponentProps) {
 
   return (
     <AnimatedContainer isVisible={isVisible} position={position}>
-      {renderComponent(props)}
+      {RenderComponent(props)}
     </AnimatedContainer>
   );
 }

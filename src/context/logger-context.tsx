@@ -21,7 +21,7 @@ function LoggerProvider(props: LoggerProviderProps) {
   const log = React.useCallback(
     (...args: unknown[]) => {
       if (enableLogs) {
-        console.log('Toast:', ...args);
+        console.log('[react-native-toast-next]: ', ...args);
       }
     },
     [enableLogs]
