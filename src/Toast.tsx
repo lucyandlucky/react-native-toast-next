@@ -82,12 +82,23 @@ Toast.show = (p: ToastShowParams) => {
   getRef()?.show(p);
 };
 
-Toast.success = (p: Omit<ToastShowParams, 'type'>) => {
-  getRef()?.show({ ...p, type: 'success' });
+Toast.success = (
+  text: '',
+  options?: Omit<ToastShowParams, 'type' | 'text'>
+) => {
+  getRef()?.show({
+    type: 'success',
+    text,
+    ...options,
+  });
 };
 
-Toast.error = (p: Omit<ToastShowParams, 'type'>) => {
-  getRef()?.show({ ...p, type: 'error' });
+Toast.error = (text: '', options?: Omit<ToastShowParams, 'type' | 'text'>) => {
+  getRef()?.show({
+    type: 'error',
+    text,
+    ...options,
+  });
 };
 
 Toast.hide = () => {
