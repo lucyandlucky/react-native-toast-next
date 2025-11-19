@@ -1,18 +1,28 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'black',
-    borderRadius: 5,
-    padding: 10,
-    opacity: 0.7,
+  base: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    backgroundColor: 'rgba(0,0,0,0.7)',
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.7)',
   },
   text: {
     color: '#FFFFFF',
-    fontSize: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingStart: 20,
-    paddingEnd: 20,
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  leadingIcon: {
+    width: 14,
+    height: 14,
+  },
+  trailingIcon: {
+    width: 14,
+    height: 14,
   },
 });

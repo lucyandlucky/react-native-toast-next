@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 20,
     // width: '100%',
     // height: '100%',
     // backgroundColor: 'pink',

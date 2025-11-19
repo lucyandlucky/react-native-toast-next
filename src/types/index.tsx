@@ -1,5 +1,13 @@
 import React from 'react';
-import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import type {
+  ImageSourcePropType,
+  ImageStyle,
+  StyleProp,
+  TextProps,
+  TextStyle,
+  TouchableOpacityProps,
+  ViewStyle,
+} from 'react-native';
 
 export type ReactChildren = React.ReactNode;
 
@@ -16,7 +24,17 @@ export type ToastHideParams = void;
 export type BaseToastProps = {
   text?: string;
   style?: StyleProp<ViewStyle>;
+  touchContainerProps?: TouchableOpacityProps;
   textStyle?: StyleProp<TextStyle>;
+  textProps?: TextProps;
+  activeOpacity?: number;
+  leadingIcon?: ImageSourcePropType;
+  leadingIconStyle?: StyleProp<ImageStyle>;
+  trailingIcon?: ImageSourcePropType;
+  trailingStyle?: StyleProp<ImageStyle>;
+  onPress?: () => void;
+  renderLeadingIcon?: () => ReactChildren;
+  renderTrailingIcon?: () => ReactChildren;
 };
 
 export type ToastConfigParams<P> = {

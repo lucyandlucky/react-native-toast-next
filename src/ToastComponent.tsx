@@ -6,7 +6,7 @@ import type {
   ToastShowParams,
 } from './types';
 import AnimatedContainer from './components/animated-container';
-import BaseToast from './components/base-toast';
+import { BaseToast } from './components/base-toast';
 
 const defaultToastConfig: ToastConfig = {
   info: (props) => <BaseToast {...props} />,
