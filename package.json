@@ -44,7 +44,8 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "toast"
   ],
   "repository": {
     "type": "git",
