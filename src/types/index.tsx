@@ -86,6 +86,18 @@ export type ToastOptions = {
    */
   textStyle?: StyleProp<TextStyle>;
   /**
+   * Offset from top of the screen.
+   * Has effect only when `position` is `top`.
+   * Default Value: `40`
+   */
+  topOffset?: number;
+  /**
+   * Offset from bottom of the screen.
+   * Has effect only when `position` is `bottom`
+   * Default value: `40`
+   */
+  bottomOffset?: number;
+  /**
    * Any custom props passed to specified Toast Type.
    * Has effect only when there is a custom Toast Type (configured via `config` prop on the Toast instance)
    * that uses `props` parameter
@@ -124,4 +136,16 @@ export type ToastProps = {
    * Default value: `true`
    */
   autoHide?: boolean;
+  /**
+   * Offset from top of the screen.
+   * Has effect only when `position` is `top`.
+   * Default Value: `40`
+   */
+  topOffset?: number;
+  /**
+   * Offset from bottom of the screen.
+   * Has effect only when `position` is `bottom`
+   * Default value: `40`
+   */
+  bottomOffset?: number;
 };

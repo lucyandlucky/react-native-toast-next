@@ -21,6 +21,8 @@ const DEFAULT_OPTION: Required<ToastOptions> = {
   autoHide: true,
   textStyle: null,
   props: null,
+  topOffset: 40,
+  bottomOffset: 40,
   onPress: noop,
 };
 
@@ -35,9 +37,11 @@ export function useToast(o: UseToastParams) {
     DEFAULT_OPTION,
     defaultOptions
   ) as Required<ToastOptions>;
+
   const { log } = useLogger();
   const [isVisible, setIsVisible] = React.useState(false);
-  const [options, setOptions] = React.useState(initialOption);
+  const [options, setOptions] =
+    React.useState<Required<ToastOptions>>(initialOption);
   const [data, setData] = React.useState(DEFAULT_DATA);
 
   const onAutoHide = React.useCallback(() => {
@@ -63,6 +67,8 @@ export function useToast(o: UseToastParams) {
         position = initialOption.position,
         visibilityTime = initialOption.visibilityTime,
         autoHide = initialOption.autoHide,
+        topOffset = initialOption.topOffset,
+        bottomOffset = initialOption.bottomOffset,
         props = initialOption.props,
       } = params;
 
@@ -73,6 +79,8 @@ export function useToast(o: UseToastParams) {
           position,
           visibilityTime,
           autoHide,
+          topOffset,
+          bottomOffset,
           props,
         }) as Required<ToastOptions>
       );

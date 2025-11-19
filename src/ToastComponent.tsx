@@ -63,10 +63,15 @@ function RenderComponent({
 
 export default function ToastComponent(props: ToastComponentProps) {
   const { isVisible, options } = props;
-  const { position } = options;
+  const { position, topOffset, bottomOffset } = options;
 
   return (
-    <AnimatedContainer isVisible={isVisible} position={position}>
+    <AnimatedContainer
+      isVisible={isVisible}
+      position={position}
+      topOffset={topOffset}
+      bottomOffset={bottomOffset}
+    >
       {RenderComponent(props)}
     </AnimatedContainer>
   );

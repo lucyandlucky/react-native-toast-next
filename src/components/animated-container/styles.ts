@@ -7,11 +7,16 @@ export const styles = StyleSheet.create({
     right: 0,
     left: 0,
     bottom: 0,
-    justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    // width: '100%',
-    // height: '100%',
-    // backgroundColor: 'pink',
+  },
+  center: {
+    justifyContent: 'center',
+  },
+  top: {
+    justifyContent: 'flex-start',
+  },
+  bottom: {
+    justifyContent: 'flex-end',
   },
 });
