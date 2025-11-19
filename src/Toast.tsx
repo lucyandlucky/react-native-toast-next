@@ -72,7 +72,7 @@ export function Toast(props: ToastProps): React.ReactElement {
   }, []);
 
   return (
-    <LoggerProvider enableLogs={true}>
+    <LoggerProvider enableLogs={false}>
       <ToastRoot ref={setRef} {...props} />
     </LoggerProvider>
   );
