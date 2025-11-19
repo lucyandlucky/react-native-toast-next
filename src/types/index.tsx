@@ -1,13 +1,9 @@
 import React from 'react';
-import type { StyleProp, TextStyle } from 'react-native';
+import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 export type ReactChildren = React.ReactNode;
 
-export type ToastType =
-  | 'success'
-  | 'error'
-  | 'info'
-  | (string & Record<string, never>);
+export type ToastType = 'success' | 'error' | 'info' | (string & {});
 export type ToastPosition = 'center' | 'top' | 'bottom';
 
 export type ToastData = {
@@ -16,6 +12,12 @@ export type ToastData = {
 
 export type ToastShowParams = ToastData & ToastOptions;
 export type ToastHideParams = void;
+
+export type BaseToastProps = {
+  text?: string;
+  style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
+};
 
 export type ToastConfigParams<P> = {
   position: ToastPosition;
@@ -61,6 +63,12 @@ export type ToastOptions = {
    * Default value: `true`
    */
   autoHide?: boolean;
+  /**
+   * Any custom props passed to specified Toast Type.
+   * Has effect only when there is a custom Toast Type (configured via `config` prop on the Toast instance)
+   * that uses `props` parameter
+   */
+  props?: any;
 };
 
 export type ToastProps = {

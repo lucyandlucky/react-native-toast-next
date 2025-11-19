@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLogger } from '../context/logger-context';
 import { useTimeout } from './use-timeout.hook';
 import type {
@@ -18,6 +18,7 @@ const DEFAULT_OPTION: Required<ToastOptions> = {
   position: 'center',
   visibilityTime: 4000,
   autoHide: true,
+  props: {},
 };
 
 export type UseToastParams = {
@@ -59,6 +60,7 @@ export function useToast(o: UseToastParams) {
         position = initialOption.position,
         visibilityTime = initialOption.visibilityTime,
         autoHide = initialOption.autoHide,
+        props = initialOption.props,
       } = params;
 
       setData({ text });
@@ -68,24 +70,21 @@ export function useToast(o: UseToastParams) {
           position,
           visibilityTime,
           autoHide,
+          props,
         }) as Required<ToastOptions>
       );
       setIsVisible(true);
     },
     [initialOption]
   );
-  // const show = () => {
-  //   log('Showing with params');
-  //   setIsVisible(true);
-  // };
 
-  const hide = () => {
+  const hide = React.useCallback(() => {
     log('Hiding');
     setIsVisible(false);
     clearTimer();
-  };
+  }, [log, clearTimer]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isVisible) {
       startTimer();
     } else {
