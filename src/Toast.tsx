@@ -82,6 +82,14 @@ Toast.show = (p: ToastShowParams) => {
   getRef()?.show(p);
 };
 
+Toast.success = (p: Omit<ToastShowParams, 'type'>) => {
+  getRef()?.show({ ...p, type: 'success' });
+};
+
+Toast.error = (p: Omit<ToastShowParams, 'type'>) => {
+  getRef()?.show({ ...p, type: 'error' });
+};
+
 Toast.hide = () => {
   getRef()?.hide();
 };

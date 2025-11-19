@@ -17,7 +17,7 @@ export const DEFAULT_DATA: ToastData = {
 const DEFAULT_OPTION: Required<ToastOptions> = {
   type: 'info',
   position: 'center',
-  visibilityTime: 4000,
+  visibilityTime: 1000 * 3,
   autoHide: true,
   textStyle: null,
   props: null,

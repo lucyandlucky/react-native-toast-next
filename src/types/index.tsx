@@ -72,7 +72,7 @@ export type ToastOptions = {
   /**
    * Number of milliseconds after which Toast automatically hides.
    * Has effect only in conjunction with `autoHide` prop set to `true`.
-   * Default value: `4000`
+   * Default value: `3000`
    */
   visibilityTime?: number;
   /**
@@ -115,7 +115,7 @@ export type ToastProps = {
   /**
    * Number of milliseconds after which Toast automatically hides.
    * Has effect only in conjunction with `autoHide` prop set to `true`.
-   * Default value: `4000`
+   * Default value: `3000`
    */
   visibilityTime?: number;
   /**
