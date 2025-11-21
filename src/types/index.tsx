@@ -104,6 +104,14 @@ export type ToastOptions = {
    */
   props?: any;
   /**
+   * Call when any Toast is shown
+   */
+  onShow?: () => void;
+  /**
+   * Call when any Toast hides
+   */
+  onHide?: () => void;
+  /**
    * Called on Toast press
    */
   onPress?: () => void;
@@ -148,4 +156,12 @@ export type ToastProps = {
    * Default value: `40`
    */
   bottomOffset?: number;
+  /**
+   * Call when any Toast is shown
+   */
+  onShow?: () => void;
+  /**
+   * Call when any Toast hides
+   */
+  onHide?: () => void;
 };
