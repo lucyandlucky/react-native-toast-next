@@ -83,7 +83,7 @@ Toast.show = (p: ToastShowParams) => {
 };
 
 Toast.success = (
-  text: '',
+  text: string = '',
   options?: Omit<ToastShowParams, 'type' | 'text'>
 ) => {
   getRef()?.show({
@@ -93,7 +93,10 @@ Toast.success = (
   });
 };
 
-Toast.error = (text: '', options?: Omit<ToastShowParams, 'type' | 'text'>) => {
+Toast.error = (
+  text: string = '',
+  options?: Omit<ToastShowParams, 'type' | 'text'>
+) => {
   getRef()?.show({
     type: 'error',
     text,
